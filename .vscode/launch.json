@@ -1,0 +1,35 @@
+{  
+    "version": "0.2.0",  "configurations": [    
+        {      
+            "name": "Odoo 20: Debug",      
+            "type": "debugpy",      
+            "request": "launch",      
+            "program": "${workspaceFolder}/odoo/odoo-bin",      
+            "args": ["-c", "${workspaceFolder}/odoo.conf", "--dev=xml,qweb"],      
+            "console": "integratedTerminal",      
+            "justMyCode": false    
+        },    
+        {      
+            "name": "Odoo 20: Run (auto-reload)",      
+            "type": "debugpy",      
+            "request": "launch",      
+            "program": "${workspaceFolder}/odoo/odoo-bin",      
+            "args": ["-c", "${workspaceFolder}/odoo.conf", "--dev=all"],      
+            "console": "integratedTerminal",      
+            "justMyCode": false    
+        },    
+        {      
+            "name": "Odoo 20: Update module",      
+            "type": "debugpy",      
+            "request": "launch",      
+            "program": "${workspaceFolder}/odoo/odoo-bin",      
+            "args": ["-c", "${workspaceFolder}/odoo.conf", "-d", "${input:dbName}",               "-u", "${input:moduleName}", "--dev=xml"],      
+            "console": "integratedTerminal", 
+            "justMyCode": false    
+        }  
+    ],  
+            "inputs": [    
+                { "id": "dbName", "type": "promptString", "description": "Database name", "default": "odoo20_demo" },    
+                { "id": "moduleName", "type": "promptString", "description": "Module to update", "default": "hello_odoo20" }  
+                ] 
+}
